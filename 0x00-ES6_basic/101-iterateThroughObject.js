@@ -1,9 +1,6 @@
-export default function iterateThroughObject(reportWithIterator) {
-  const employees = [];
-
-  for (const employee of reportWithIterator) {
-    employees.push(employee);
-  }
-
-  return employees.join(' | ');
+export default function handleResponseFromAPI(promise) {
+  return promise
+    .then(() => ({ status: 200, body: 'success' }))
+    .catch(() => new Error())
+    .finally(() => console.log('Got a response from the API'));
 }
